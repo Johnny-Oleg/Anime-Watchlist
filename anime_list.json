@@ -1,14 +1,5 @@
 {
-    "death note": {
-        "completed": false
-    },
-    "one piece": {
-        "completed": false
-    },
-    "naruto": {
-        "completed": false
-    },
-    "pokemon": {
+    "Death Note": {
         "completed": false
     }
 }

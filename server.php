@@ -1,25 +1,20 @@
 <?php
+$anime_name = $_POST['anime_name'] ?? '';
 
-// echo '<pre>';
-// var_dump($_POST);
-// echo '<pre>';
+$anime_name = str_replace(['/', '\\', '<', '>'], '', trim($anime_name));
 
-$animeName = $_POST['anime_name'] ?? '';
-$animeName = str_replace(['/', '\\', '<', '>'], '', trim($animeName));
-
-if ($animeName) {
+if ($anime_name) {
     if (file_exists('anime_list.json')) {
         $json = file_get_contents('anime_list.json');
-        $animeList = json_decode($json, true);
+        $anime_list = json_decode($json, true);
     } else {
-        $animeList = [];
+        $anime_list = [];
     }
 
-    $animeList[$animeName] = ['completed' => false];
+    $anime_list[$anime_name] = ['completed' => false];
 
-    file_put_contents('anime_list.json', json_encode($animeList, JSON_PRETTY_PRINT));
+    file_put_contents('anime_list.json', json_encode($anime_list, JSON_PRETTY_PRINT));
 }
 
 header('Location: index.php');
-
 ?>

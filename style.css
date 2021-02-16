@@ -1,0 +1,77 @@
+html, body {
+    box-sizing: border-box;
+    /* margin: 0 auto; */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #1B1818;
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 400;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 500;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.container {
+    max-width: 1220px;
+    padding: 0 10px;
+    margin: 0 auto;  
+}
+
+.section {
+    display: flex;
+    
+}
+
+.anime-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.anime {
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    /* background-color: pink; */
+    background: rgba(255,192,203, 0.8);
+    /* opacity: 0.8; */
+}
+
+.btn {
+    display: inline-block;
+    text-transform: uppercase;
+    color: #FEFEFE;
+    background: #C5AC2D;
+    padding: 16px 19px 15px;
+    transition: all 0.5s;
+    border: 1px solid transparent;
+    border-radius: 30px;
+}
+
+.btn:hover {
+    color: #C5AC2D;
+    background: #FEFEFE;
+    border: 1px solid #C5AC2D;
+}
