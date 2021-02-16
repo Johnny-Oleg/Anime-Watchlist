@@ -1,5 +1,11 @@
 {
     "Death Note": {
         "completed": false
+    },
+    "One Piece": {
+        "completed": false
+    },
+    "Naruto": {
+        "completed": false
     }
 }

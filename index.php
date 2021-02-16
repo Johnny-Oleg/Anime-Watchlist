@@ -27,30 +27,39 @@ $random_img = array_rand(array_flip($scanned_directory), 1);
 <body style="background-image: url(<?php echo $images.$random_img; ?>)">
     <div class="container">
         <div class="section">
-            <form action="server.php" method="post">
-                <input type="text" name="anime_name" placeholder="Enter your anime" required>
-                <button>New anime +</button>
-            </form>
-            <div class="anime-list">
+            <div class="form">
+                <form action="server.php" method="post">
+                    <input type="text" name="anime_name" placeholder="Enter your anime" required>
+                    <button class="btn">New anime +</button>
+                </form>
+                <div class="total">
+                    <p>
+                        <?php echo $anime_summary > 0 ? "Total anime to watch: $anime_summary" : 'No anime to watch...'; ?>
+                    </p>
+                </div>
+                <div class="clock">
+                    <span>Time: </span><span class="time"></span>
+                </div>
+            </div>
+            <div class="anime__list">
                 <h3>Anime to watch</h3>
-                <?php foreach ($anime_list as $anime_name => $anime): ?>
-                    <div class="anime">
-                        <form action="change_status.php" method="post">
-                            <input type="hidden" name="anime_name" value="<?php echo $anime_name; ?>">
-                            <input type="checkbox" <?php echo $anime['completed'] ? 'checked' : ''; ?> >
-                        </form>
-                        <?php echo $anime_name; ?>
-                        <form action="delete.php" method="post">
-                            <input type="hidden" name="anime_name" value="<?php echo $anime_name; ?>">
-                            <button class="btn">Delete anime</button>
-                        </form>
-                    </div>
-                <?php endforeach; ?>
+                <ul class="scroll">
+                    <?php foreach ($anime_list as $anime_name => $anime): ?>
+                        <li class="anime__list-item">
+                            <form action="change_status.php" method="post">
+                                <input type="hidden" name="anime_name" value="<?php echo $anime_name; ?>">
+                                <input type="checkbox" <?php echo $anime['completed'] ? 'checked' : ''; ?> >
+                            </form>
+                            <?php echo $anime_name; ?>
+                            <form action="delete.php" method="post">
+                                <input type="hidden" name="anime_name" value="<?php echo $anime_name; ?>">
+                                <button class="btn">Delete anime</button>
+                            </form>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         </div>    
-        <div class="total">
-            <p><?php echo $anime_summary > 0 ? "Total anime to watch: $anime_summary" : 'No anime to watch...'; ?></p>
-        </div>
     </div>    
 
     <script type="text/javascript" src="script.js"></script>
